@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+  <script>
+    var year = parseInt(prompt('Mời bạn nhập năm cần kiểm tra:'));
+
+    var isLeapYear = false;
+    
+    var isDivisibleBy4 = year % 4 == 0;
+    var isDivisibleBy100 = year % 100 == 0;
+    var isDivisibleBy400 = year % 400 == 0;
+
+    ((isDivisibleBy4 && isDivisibleBy100) || isDivisibleBy400) ? alert('Năm '+year+' không phải là năm nhuận') : alert('Năm '+year+' là năm nhuận');
+  </script>
+</body>
+</html>
