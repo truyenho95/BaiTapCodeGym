@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Keydown Event</title>
+</head>
+<body onload="docReady()">
+  <img id="nobita" src="images/nobita.png" alt="nobita" style="position:absolute; left:0; top:0;" height="100" width="80">
+  <script>
+    var getElement = document.getElementById('nobita');
+
+    function upArrowPressed() {
+      getElement.style.top = parseInt(getElement.style.top) - 5 + 'px';
+    }
+    function downArrowPressed() {
+      getElement.style.top = parseInt(getElement.style.top) + 5 + 'px';
+    }
+    function leftArrowPressed() {
+      getElement.style.left = parseInt(getElement.style.left) - 5 + 'px';
+    }
+    function rightArrowPressed() {
+      getElement.style.left = parseInt(getElement.style.left) + 5 + 'px';
+    }
+
+    function docReady() {
+      window.addEventListener('keydown', (event) => {
+        switch (event.keyCode) {
+          case 37:
+            leftArrowPressed();
+            break;
+          case 38:
+            upArrowPressed();
+            break;
+          case 39:
+            rightArrowPressed();
+            break;
+          case 40:
+            downArrowPressed();
+            break;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
