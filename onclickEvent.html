@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Onclick Event</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: center;
+      width: 100%;
+      height: 100px;
+    }
+
+    p {
+      display: block;
+      width: 100%;
+    }
+
+    input {
+      display: inline-block;
+      margin: 0 15px;
+      border: none;
+      padding: 10px 30px;
+      cursor: pointer;
+      background-color: rgb(245, 45, 45);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    input:hover {
+      background-color: rgb(202, 30, 30);
+    }
+  </style>
+</head>
+<body>
+  <img src="images/ball.png" alt="" id="myBall" width="100" style="left: 50%; transform: translateX(-50%);">
+  <form>
+    <p>Click button below to move the image to right or to move the image to left</p>
+    <input type="button" value="Left" onclick="moveLeft();"/>
+    <input type="button" value="Right" onclick="moveRight();"/>
+  </form>
+
+  <script>
+    window.onload = init;
+
+    var myBall = document.getElementById('myBall');
+
+    function init () {
+      myBall.style.position = 'relative';
+    }
+
+    function moveLeft() {
+      myBall.style.left = parseFloat(myBall.offsetLeft) - 15 + 'px';
+    }
+
+    function moveRight() {
+      myBall.style.left = parseFloat(myBall.offsetLeft) + 15 + 'px';
+    }
+  </script>
+</body>
+</html>
