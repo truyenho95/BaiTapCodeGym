@@ -10,13 +10,14 @@
   <script>
     var year = parseInt(prompt('Mời bạn nhập năm cần kiểm tra:'));
 
-    var isLeapYear = false;
-    
     var isDivisibleBy4 = year % 4 == 0;
     var isDivisibleBy100 = year % 100 == 0;
     var isDivisibleBy400 = year % 400 == 0;
 
-    ((isDivisibleBy4 && isDivisibleBy100) || isDivisibleBy400) ? alert('Năm '+year+' không phải là năm nhuận') : alert('Năm '+year+' là năm nhuận');
+    var isLeapYear = (isDivisibleBy4 && !isDivisibleBy100) || isDivisibleBy400;
+
+
+    (isLeapYear) ? alert('Năm '+year+' là năm nhuận') : alert('Năm '+year+' không phải là năm nhuận');
   </script>
 </body>
 </html>
