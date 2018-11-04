@@ -40,7 +40,7 @@
   </style>
 </head>
 <body>
-  <img src="images/ball.png" alt="" id="myBall" width="100" style="left: 50%; transform: translateX(-50%);">
+  <img src="images/ball.png" alt="" id="myBall" width="100">
   <form>
     <p>Click button below to move the image to right or to move the image to left</p>
     <input type="button" value="Left" onclick="moveLeft();"/>
@@ -54,14 +54,30 @@
 
     function init () {
       myBall.style.position = 'relative';
+      myBall.style.left = '50%';
+      myBall.style.transform = 'translateX(-50%)';
     }
 
+    var isFirstTime = false; // vì chỉ dùng .offsetLeft 1 lần để xác định vị trí ban đầu của đối tượng do style.left = 50% là 1 số tương đối ko phải số tuyệt đối (px)
+    
     function moveLeft() {
-      myBall.style.left = parseFloat(myBall.offsetLeft) - 15 + 'px';
+      if (!isFirstTime) {
+        myBall.style.left = parseInt(myBall.offsetLeft) - 15 + 'px';
+        isFirstTime = true;
+      }
+      else {
+        myBall.style.left = parseInt(myBall.style.left) - 15 + 'px';
+      }
     }
 
     function moveRight() {
-      myBall.style.left = parseFloat(myBall.offsetLeft) + 15 + 'px';
+      if (!isFirstTime) {
+        myBall.style.left = parseInt(myBall.offsetLeft) + 15 + 'px';
+        isFirstTime = true;
+      }
+      else {
+        myBall.style.left = parseInt(myBall.style.left) + 15 + 'px';
+      }
     }
   </script>
 </body>
