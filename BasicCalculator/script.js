@@ -40,6 +40,8 @@
     } else if (isGotX && pressedNumber && isGotY && !isGotResult) {
       y = y*10 + num;
       display.innerHTML = y; 
+    } else if (isGotX && pressedNumber && !isGotY && isGotResult) {
+      deleteAll();
     } else {
       x = result;
       y = num;
@@ -110,6 +112,6 @@
   function deleteAll() {
     x = y = result = 0;
     operation = '';
-    isGotX = isGotY = isGotResult = pressedNumber = false;
+    isGotX = isGotY = isGotResult = pressedNumber = pressedEqual = false;
     display.innerHTML = 0;
   }
