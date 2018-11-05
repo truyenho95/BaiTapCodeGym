@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <div class="calculator">
+      <div class="displayOutput">
+        <p id="displayNumber">0</p>
+      </div>
+      <!-- /.displayOutput -->
+
+      <div class="keyLayout">
+        <div class="line">
+          <input type="button" value="1" id="button1" onclick="getNumber(btn_1)">
+          <input type="button" value="2" id="button2" onclick="getNumber(btn_2)">
+          <input type="button" value="3" id="button3" onclick="getNumber(btn_3)">
+          <input type="button" value="+" id="button+" onclick="addition()">
+        </div>
+        
+        <div class="line">
+          <input type="button" value="4" id="button4" onclick="getNumber(btn_4)">
+          <input type="button" value="5" id="button5" onclick="getNumber(btn_5)">
+          <input type="button" value="6" id="button6" onclick="getNumber(btn_6)">
+          <input type="button" value="-" id="button-" onclick="subtraction()">
+        </div>
+        
+        <div class="line">
+          <input type="button" value="7" id="button7" onclick="getNumber(btn_7)">
+          <input type="button" value="8" id="button8" onclick="getNumber(btn_8)">
+          <input type="button" value="9" id="button9" onclick="getNumber(btn_9)">
+          <input type="button" value="x" id="buttonx" onclick="multiplication()">
+        </div>
+
+        <div class="line">
+          <input type="button" value="C" id="buttonC" onclick="deleteAll()">
+          <input type="button" value="0" id="button0" onclick="getNumber(btn_0)">
+          <input type="button" value="=" id="button=" onclick="getResult()">
+          <input type="button" value="/" id="button/" onclick="division()">
+        </div>
+      </div>
+      <!-- /.keyLayout -->
+    </div>    
+    <!-- /.calculator -->
+  </div>
+  <!-- /.layout -->
+
+  
+  <script src="./script.js"></script>
+</body>
+</html>
