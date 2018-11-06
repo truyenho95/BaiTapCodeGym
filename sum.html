@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tính tổng</title>
+</head>
+<body>
+  <script>
+    var num = prompt("Enter your number:");
+    do {
+      num = prompt("Your number isn't greater than 0! Enter your number again:");
+    } while (!num)
+    
+    var total = 0;
+
+    for(var i=1; i <= num; i = i + 1)
+      total += i;
+
+    alert(total);
+  </script>
+</body>
+</html>
