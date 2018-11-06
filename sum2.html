@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tính tổng cho đến khi nhập vào -1</title>
+</head>
+<body>
+  <script>
+    var num;
+    var total = 0;
+
+    do {
+      num = parseInt(prompt("Enter a number: "));
+      alert(`Số nhập vào là: ${num}`);
+      if (num!=-1)
+        total += num;
+    }
+    while( num != -1 )
+
+    alert(`Tổng là: ${total}`);
+  </script>
+</body>
+</html>
