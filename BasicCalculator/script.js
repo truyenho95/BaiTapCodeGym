@@ -48,7 +48,7 @@
     }
   }
 
-  function doYouWantBeContinued() {
+  function doYouWantBeContinued() { // hàm kiểm tra xem đã ấn dấu = chưa, nếu chưa ấn dấu bằng mà tiếp tục ấn các phép toán thì sẽ thực hiện hàm getResult trước, còn ấn dấu bằng r và vẫn muốn thực hiện tiếp phép toán thì chỉ chuyển giá trị của biến result qua cho biến x.
     if (!isGotResult && isGotY && !pressedEqual) {
       getResult();
       display.innerHTML = result;
