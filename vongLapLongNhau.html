@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>For lồng và While lồng</title>
+</head>
+<body>
+  <h1>Vòng for lồng nhau</h1>
+  <script>
+    var matrix1, i, j;
+    matrix1 = "<table border='1' width='300' cellspacing='0' cellpadding='3'>"
+    for (i = 1; i <= 10; i++) {
+      matrix1 += "<tr>";
+      for (j = 1; j <= 10; j++) {
+          matrix1 += "<td>" + i * j + "</td>";
+      }
+      matrix1 += "</tr>";
+    }
+    matrix1 += "</table>";
+    document.write (matrix1);
+  </script>
+
+  <h1>Vòng while lồng nhau</h1>
+  <script>
+    var matrix2, x, y;
+    matrix2 = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    x = y = 1;
+    while (x <= 10) {
+      matrix2 += "<tr>";
+      while (y <= 10) {
+          matrix2 += "<td>" + x * y + "</td>";
+          y++;
+      }
+      matrix2 += "</tr>";
+      y = 1;
+      x++;
+    }
+    matrix2 += "</table>";
+    document.write (matrix2);
+  </script>
+</body>
+</html>
