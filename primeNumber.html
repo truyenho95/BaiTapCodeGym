@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Số nguyên tố</title>
+</head>
+<body>
+  <script>
+    var n = parseInt(prompt('Bạn muốn in ra bao nhiêu số nguyên tố đầu tiên?'));
+    var count = n;
+    var list = "";
+
+    for (var i = 2; count !== 0; i++) {
+      var divisible = 0;
+      for (var j = 2; j <= i; j++) {
+        if (!(i%j)) divisible += 1;
+      }
+      if (divisible===1) {
+        count--;
+        (count===0) ? (list += `${i}.`) : (list += `${i}, `);
+      }
+    }
+
+    document.write(`<p>${n} số nguyên tố đầu tiên là: </p>`);
+    document.write(`<h3>${list}</h3>`);
+  </script>
+</body>
+</html>
