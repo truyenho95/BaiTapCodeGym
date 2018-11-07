@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>[Bài tập] Luyện tập vòng lặp 01</title>
+</head>
+<body>
+  <h2 style="color: red">Ấn nút để thực thi các hàm tương ứng với các bài toán từ 1 đến 8</h2>
+  
+  <script>
+    var exerciseName = [
+      'Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.',
+      'Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.',
+      'Hiển thị ra N số trong dãy fibonacci đầu tiên.',
+      'Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.',
+      'Tính tổng của N số đầu tiên trong dãy fibonacci.',
+      'Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.',
+      'Hãy viết một chương trình in ra các số từ 1 đến 100. Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó. Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".',
+      'Game đoán số<br>Nâng cấp game "Hãy thử đoán xem!"<br>1. Thiết kế giao diện: Giao diện chỉ gồm 1 Button "Chơi": cho phép người dùng bắt đầu chơi hoặc chơi lại<br>2. Mô tả ứng dụng: Khi người dùng nhấn vào button “Chơi”:<br><ul><li>Ứng dụng hiển thị cửa sổ prompt cho phép người dùng nhập vào muốn đoán trong khoảng nào</li><li>Ứng dụng chọn ra số ngẫu nhiên trong khoảng mà người dùng chọn</li><li>Ứng dụng hiển thị cửa số prompt cho người dùng nhập giá trị mà người dùng đoán</li><li>Ứng dụng lấy kết quả và so sánh với giá trị ngẫu nhiên.<li>Nếu bằng thì hiển thị thông báo chúc mừng và kết thúc lượt chơi</li><li>Nếu lớn hơn hoặc bé thua thì hiển thị thông báo lớn hơn hay bé thua và cho phép người dùng lựa chọn lại.</li></ul>Chú ý: Người dùng chỉ được lựa chọn tối đa ba lần.'
+    ];
+
+    for (var i = 1; i<=8; i++) {
+      document.write(`<h3 style="display:block;">Bài ${i}: ${exerciseName[i-1]}</h3><input type="button" value="Bài ${i}" onclick="bai${i}()"> <br>`)
+    }
+  
+  
+    // Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.
+    function bai1() {
+      for (var x = 1; x<=100; x++) {
+        document.write(`<p>${x}</p>`);
+        if (x===99) alert('Hoàn thành!');
+      }
+    }
+
+    // Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập. Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ. Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.
+    function bai2() {
+      var tem = parseInt(prompt('Nhiệt độ hiện tại:'));
+      if (tem>100) alert('Yêu cầu giảm nhiệt độ!');
+      else if (tem<20) alert('Yêu cầu tăng nhiệt độ!');
+      else alert('Nhiệt độ an toàn');
+    }
+
+    // Bài 3: Hiển thị ra N số trong dãy fibonacci đầu tiên.
+    function bai3() {
+      var n = parseInt(prompt('Bạn muốn in bao nhiêu số Fibonacci đầu tiên:'));
+      var count = n;
+      var list = '';
+      var x = y = 1;
+      var temp;
+
+      while (count>0) {
+        if (count===1)
+          list += `${x}.`;
+        else
+          list += `${x}, `;
+        temp = x;
+        x = y;
+        y += temp;
+        count--;
+      }
+
+      document.write(list);
+    }
+
+    // Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+    function bai4() {
+      var x = y = 1;
+      var temp;
+      var isFound = true;
+
+      while (isFound) {
+        if (!(x%5)) {
+          document.write(`Số fibonacci đầu tiên chia hết cho 5 là: <h1>${x}</h1>`);
+          isFound = false;
+        }
+        else {
+          temp = x;
+          x = y;
+          y += temp;
+        }
+      }
+    }
+
+    // Bài 5: Tính tổng của N số đầu tiên trong dãy fibonacci.
+    function bai5() {
+      var n = parseInt(prompt('Bạn tính tổng bao nhiêu số Fibonacci đầu tiên:'));
+      var count = n;
+      var sum = 0;
+      var x = y = 1;
+      var temp;
+
+      while (count>0) {
+        sum += x;
+        temp = x;
+        x = y;
+        y += temp;
+        count--;
+      }
+
+      document.write(`Tổng của ${n} số fibonacci đầu tiên là: <h1>${sum}</h1>`);
+    }
+
+    // Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.
+    function bai6() {
+      var sum = count = 0;
+      for (var i = 1; count<=30; i++)
+        if (!(i%7)) {
+          console.log(i);
+          sum+=i;
+          count++;
+        }
+        
+      document.write(`Tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên là: <h1>${sum}</h1>`);      
+    }
+
+    // Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100. Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó. Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz".
+    function bai7() {
+      for (var i = 1; i <= 100; i++)
+      {
+        if (!(i%3) && !(i%5))
+          document.write('FizzBuzz</br>');        
+        else if (!(i%5))
+          document.write('Buzz</br>');
+        else if (!(i%3))
+          document.write('Fizz</br>');
+        else
+          document.write(i+'</br>');
+      }
+    }
+
+    /*
+      Bài 8: Game đoán số
+      Nâng cấp game "Hãy thử đoán xem!"
+      1. Thiết kế giao diện: Giao diện chỉ gồm 1 Button "Chơi": cho phép người dùng bắt đầu  chơi hoặc chơi lại  
+      2. Mô tả ứng dụng: Khi người dùng nhấn vào button “Chơi”:
+
+      * Ứng dụng hiển thị cửa sổ prompt cho phép người dùng nhập vào muốn đoán trong khoảng nào
+      * Ứng dụng chọn ra số ngẫu nhiên trong khoảng mà ngườI dùng chọn
+      * Ứng dụng hiển thị cửa số prompt cho người dùng nhập giá trị mà người dùng đoán
+      * Ứng dụng lấy kết quả và so sánh với giá trị ngẫu nhiên.
+      * Nếu bằng thì hiển thị thông báo chúc mừng và kết thúc lượt chơi
+      * Nếu lớn hơn hoặc bé thua thì hiển thị thông báo lớn hơn hay bé thua và cho phép người dùng lựa chọn lại.
+      Chú ý: Người dùng chỉ được lựa chọn tối đa ba lần    
+    */
+    function play() {
+      var count = 0;
+      var isCorrected = false;
+      var min = parseInt(prompt('Số bé nhất trong khoảng đoán số:'));
+      var max = parseInt(prompt('Số lớn nhất trong khoảng đoán số:'));
+      
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random()*(max-min+1) + min);
+      }
+
+      var correctNumber = getRandomNumber(min, max);
+      var playerNumber = parseInt(prompt('Số bạn đoán là:'));
+
+      while (count<3) {
+        if (playerNumber===correctNumber) {
+          isCorrected = true;
+          break;
+        }
+        else if (playerNumber<correctNumber) {
+          count++;
+          if (count===3) break;
+          else playerNumber = parseInt(prompt('Số bạn nhỏ hơn số của máy! Mời bạn đoán lại:'));
+        } else {
+          count++;
+          if (count===3) break;
+          else playerNumber = parseInt(prompt('Số bạn lớn hơn số của máy! Mời bạn đoán lại:'));
+        }
+        console.log(count, isCorrected);
+      }
+
+      (isCorrected) ? alert('You WIN!') : alert(`You LOSE! Số của máy là ${correctNumber}`);
+    }
+    
+    function bai8() {
+      document.write('<h1>Game Đoán Số</h1>');
+      document.write('<input type="button" value="Chơi" onclick="play()">');
+    }
+  </script>
+</body>
+</html>
