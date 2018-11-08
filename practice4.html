@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>[Bài tập] Luyện tập vòng lặp 02</title>
+</head>
+<body>
+  <h2 style="color: red">Ấn nút để thực thi các hàm tương ứng với các bài toán từ 1 đến 8</h2>
+  <script>
+    var exerciseName = [
+      'In dãy Finonaci.',
+      'Tính giai thừa của một số nguyên dương',
+      'In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau',
+      'In hình chữ nhật',
+      'Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.',
+      'In hình trái tim'
+    ];
+
+    for (var i = 1; i<=6; i++) {
+      document.write(`<h3 style="display:block;">Bài ${i}: ${exerciseName[i-1]}</h3><input type="button" value="Bài ${i}" onclick="bai${i}()"> <br>`)
+    }
+
+    // Bài 1: In dãy Finonaci
+    function bai1() {
+      var n = parseInt(prompt('Bạn muốn in bao nhiêu số Fibonacci đầu tiên:'));
+      var count = n;
+      var list = '';
+      var x = y = 1;
+      var temp;
+
+      while (count>0) {
+        if (count===1)
+          list += `${x}.`;
+        else
+          list += `${x}, `;
+        temp = x;
+        x = y;
+        y += temp;
+        count--;
+      }
+
+      document.write(list);
+    }
+
+    // Bài 2: Tính giai thừa của một số nguyên dươngBài 2: Tính giai thừa của một số nguyên dương
+    function bai2() {
+      var n = parseInt(prompt('Bạn muốn tính giai thừa của:'));
+      var factorial=1;
+      var i=1;
+      if (n===0)
+        factorial = 1;
+      else {
+        while (i<=n) {
+          factorial *= i;
+          i++;
+        }
+      }
+
+      document.write(`<h1>${n}! = ${factorial}</h1>`);
+    }
+
+    // Bài 3: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau
+    function bai3() {
+      for (var i = 10; i >= 1; i--) {
+        var star = "";
+        for (var j = 1; j <= i; j++ ) {
+          star += "*"; 
+        }
+        document.write(`${star}<br>`);
+      }
+      document.write(`<br><br><br><br>`);
+      
+      for (var i = 1; i <= 10; i++) {
+        var star = "";
+        for (var j = 1; j <= i; j++ ) {
+          star += "*"; 
+        }
+        document.write(`${star}<br>`);
+      }
+      document.write(`<br><br><br><br>`);
+      
+      for (var i = 10; i >= 1; i--) {
+        var star = "";
+        for (var k = 10 - i; k > 0; k--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        for (var j = 1; j <= i; j++) {
+          star += "*";
+        }
+        document.write(`${star}<br>`);
+      }
+      document.write(`<br><br><br><br>`);
+
+
+      for (var i = 1; i <= 10; i++) {
+        var star = "";
+        for (var k = 10 - i; k > 0; k--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        for (var j = 1; j <= i; j++) {
+          star += "*";
+        }
+        document.write(`${star}<br>`);
+      }
+    }
+
+    // Bài 4: In hình chữ nhật
+    function bai4() {
+      var star="";
+
+      for (var row = 0; row <= 4; row++) {
+        star = "";
+        if (row==0 || row==4) {
+          for (var width = 1; width <= 20; width++)
+            star += "*";
+
+          document.write(star+"<br>");
+        }
+        else {
+          star += "*";
+          for (var width = 1; width <= 18; width++)
+            star += "<span style='color: white'>*</span>";
+
+          star += "*";
+          document.write(star+"<br>");          
+        }
+      }
+    }
+
+    // Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+    function bai5() {
+      var soTienVay = parseFloat(prompt('Mời bạn nhập vào số tiền vay:'));
+      var soTienGoc = soTienVay;
+      var soThangVay = parseInt(prompt('Bạn muốn vay trong bao lâu (tháng):'));
+      var laiSuat = prompt('Lãi suất cho vay hàng tháng:');
+      if (laiSuat.indexOf("%")===-1) 
+        laiSuat = parseFloat(laiSuat);
+      else
+        laiSuat = parseFloat(laiSuat)/100;
+      var soTienLaiThangHienTai, soTienLaiTichLuy = 0;
+
+      for (var thang = 1; thang <= soThangVay; thang++) {
+        soTienLaiThangHienTai = soTienVay*laiSuat;
+        soTienVay += soTienLaiThangHienTai;
+        soTienLaiTichLuy += soTienLaiThangHienTai;
+      }
+
+      document.write(`Vay ${soTienGoc} trong ${soThangVay} tháng phải trả <span style='color: red; font-weight: bold;'>${soTienLaiTichLuy}</span> tiền lãi`);
+    }
+
+    // Bài 6: In hình trái tim
+    function bai6() {
+      var heart= [];
+
+
+      for (var i = 1; i <= 3; i++) {
+        var star = "";
+        
+        for (var k = 3 - i; k > 0; k--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        for (var j = 1; j <= i; j++) {
+          star += "*";
+        }
+
+        heart[i] = star;
+      }
+
+      for (var i = 1; i <= 3; i++) {
+        var star = "";
+        var k = i;
+        for (; k > 0; k--) {
+          star += "*";
+        }
+        k = i;
+        for (var j = 3-k; j >= 1; j--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+
+        heart[i] += star;
+      }
+
+      for (var i = 1; i <= 3; i++) {
+        var star = "";
+        
+        for (var k = 3 - i; k > 0; k--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        for (var j = 1; j <= i; j++) {
+          star += "*";
+        }
+
+        heart[i] += star;
+      }
+
+      for (var i = 1; i <= 3; i++) {
+        var star = "";
+        var k = i;
+        for (; k > 0; k--) {
+          star += "*";
+        }
+        k = i;
+        for (var j = 3-k; j >= 1; j--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+
+        heart[i] += star;
+      }
+      
+      for (var i = 3, x=4; i >= 1; i--,x++) {
+        var star = "";
+        for (var k = 3 - i; k > 0; k--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        for (var j = i ; j > 0; j--) {
+          star += "*";
+        }
+        heart[x] = star;
+      }
+
+      for (var i = 3, x=4; i >= 1; i--,x++) {
+        var star = "";
+        for (var j = 1; j <= 3; j++) {
+          star += "*";
+        }
+        heart[x] += star;
+      }
+
+      for (var i = 3, x=4; i >= 1; i--,x++) {
+        var star = "";
+        for (var j = 1; j <= 3; j++) {
+          star += "*";
+        }
+        heart[x] += star;
+      }
+
+      for (var i = 3, x=4; i >= 1; i--,x++) {
+        var star = "";
+        for (var k = i; k > 0; k--) {
+          star += "*";
+        }
+        for (var j = 3 - i ; j > 0; j--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        heart[x] += star;
+      }
+      
+      for (var i = 3, x=7; i >= 1; i--,x++) {
+        var star = "";
+        for (var j = 1; j <= 3; j++) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        heart[x] = star;
+      }
+      
+      for (var i = 3, x=7; i >= 1; i--,x++) {
+        var star = "";
+        for (var k = 3 - i; k > 0; k--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        for (var j = i ; j > 0; j--) {
+          star += "*";
+        }
+        heart[x] += star;
+      }
+
+      for (var i = 3, x=7; i >= 1; i--,x++) {
+        var star = "";
+        for (var k = i; k > 0; k--) {
+          star += "*";
+        }
+        for (var j = 3 - i ; j > 0; j--) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        heart[x] += star;
+      }
+
+      for (var i = 3, x=7; i >= 1; i--,x++) {
+        var star = "";
+        for (var j = 1; j <= 3; j++) {
+          star += "<span style='color: white;'>*</span>";
+        }
+        heart[x] += star;
+      }
+
+      for (var i = 1; i < 10; i++)
+        document.write(heart[i]+"<br>");
+    }
+  </script>
+</body>
+</html>
